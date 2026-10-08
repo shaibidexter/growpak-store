@@ -1,12 +1,10 @@
-import { Component, input, signal, inject, OnInit } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-crop-filter',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   template: `
     <div class="max-w-7xl mx-auto px-4 py-8">
       <!-- Crop Header Banner -->
