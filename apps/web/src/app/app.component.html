@@ -1,0 +1,243 @@
+<!-- Top Bar -->
+<div class="bg-primary-900 text-white text-xs py-2 px-4 border-b border-primary-800">
+  <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+    <div class="flex items-center gap-4">
+      <span class="flex items-center gap-1 font-medium">
+        <svg class="w-3.5 h-3.5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        {{ siteSettings().phone }}
+      </span>
+      <span class="hidden sm:inline-flex items-center gap-1 text-primary-200">
+        {{ siteSettings().email }}
+      </span>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <!-- Zero shipping badge -->
+      <span class="bg-primary-800 text-primary-200 px-2 py-0.5 rounded text-[11px] font-semibold border border-primary-700">
+        {{ currentLang() === 'ur' ? 'فیلڈ ایجنٹ آرڈرز پر زیرو ڈلیوری چارجز' : 'Zero Shipping for Field Agents' }}
+      </span>
+      <!-- Language Switcher -->
+      <div class="inline-flex rounded-md shadow-sm border border-primary-700 bg-primary-800/80 p-0.5">
+        <button
+          (click)="setLanguage('en')"
+          [class.bg-white]="currentLang() === 'en'"
+          [class.text-primary-900]="currentLang() === 'en'"
+          [class.text-white]="currentLang() !== 'en'"
+          class="px-2 py-0.5 rounded text-[11px] font-bold transition-all">
+          English
+        </button>
+        <button
+          (click)="setLanguage('ur')"
+          [class.bg-white]="currentLang() === 'ur'"
+          [class.text-primary-900]="currentLang() === 'ur'"
+          [class.text-white]="currentLang() !== 'ur'"
+          class="px-2 py-0.5 rounded text-[11px] font-bold transition-all urdu-text">
+          اردو
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Header -->
+<header class="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 py-3 sm:py-4 flex items-center justify-between gap-4">
+    <!-- Brand Logo -->
+    <a routerLink="/" class="flex items-center gap-2.5">
+      <div class="w-10 h-10 bg-primary-700 text-white rounded-xl flex items-center justify-center font-extrabold text-xl shadow-md">
+        GP
+      </div>
+      <div>
+        <span class="text-xl sm:text-2xl font-black text-gray-900 tracking-tight block leading-none">
+          GrowPak<span class="text-primary-700">.store</span>
+        </span>
+        <span class="text-[10px] text-gray-500 font-medium block mt-0.5 tracking-wider uppercase">
+          {{ currentLang() === 'ur' ? 'پاکستان کا زرعی پلیٹ فارم' : 'Agri-Commerce Platform' }}
+        </span>
+      </div>
+    </a>
+
+    <!-- Big Search Bar (Prominent for Farmers) -->
+    <div class="hidden md:flex flex-1 max-w-xl mx-4">
+      <div class="relative w-full">
+        <input
+          type="text"
+          [placeholder]="currentLang() === 'ur' ? 'بیج، کھاد، زرعی ادویات تلاش کریں...' : 'Search seeds, fertilizers, pesticides by crop or brand...'"
+          class="w-full pl-4 pr-12 py-2.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-600 focus:bg-white transition-all shadow-inner"
+        />
+        <button class="absolute right-1 top-1 bottom-1 px-3.5 bg-primary-700 hover:bg-primary-800 text-white rounded-lg transition-colors flex items-center justify-center">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Actions (WhatsApp Order CTA, Cart, Account) -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a
+        [href]="'https://wa.me/' + siteSettings().whatsappNumber"
+        target="_blank"
+        class="hidden lg:inline-flex items-center gap-1.5 px-3 py-2 bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100 rounded-xl text-xs font-bold transition-all">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        {{ currentLang() === 'ur' ? 'واٹس ایپ پر آرڈر' : 'Order on WhatsApp' }}
+      </a>
+
+      <!-- Cart Button -->
+      <a routerLink="/cart" class="p-2 sm:px-3 sm:py-2 text-gray-700 hover:text-primary-700 hover:bg-gray-100 rounded-xl flex items-center gap-1.5 transition-colors relative">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span class="hidden sm:inline font-bold text-sm">{{ currentLang() === 'ur' ? 'ٹوکری' : 'Cart' }}</span>
+        <span class="absolute top-1 right-1 sm:top-1 sm:right-2 bg-primary-700 text-white text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
+      </a>
+
+      <!-- Staff / Admin Portal Link -->
+      <a href="http://localhost:4300" target="_blank" class="px-3 py-2 bg-gray-900 hover:bg-black text-white text-xs font-semibold rounded-xl shadow-sm transition-all hidden sm:inline-block">
+        {{ currentLang() === 'ur' ? 'پورٹل لاگ ان' : 'Portal Login' }}
+      </a>
+
+      <!-- Mobile Hamburger -->
+      <button (click)="toggleMobileMenu()" class="md:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Dynamic Mega Menu Navigation Bar -->
+  <nav class="bg-gray-900 text-white text-sm hidden md:block">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+      <div class="flex items-center space-x-1 rtl:space-x-reverse font-medium">
+        <a routerLink="/" class="px-4 py-3 bg-primary-700 text-white font-bold flex items-center gap-2 hover:bg-primary-800 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          {{ currentLang() === 'ur' ? 'ہوم' : 'Home' }}
+        </a>
+
+        <!-- Crop Mega Dropdown / Links -->
+        <a routerLink="/shop" class="px-4 py-3 hover:bg-gray-800 hover:text-primary-300 transition-colors">
+          {{ currentLang() === 'ur' ? 'تمام مصنوعات' : 'All Products' }}
+        </a>
+
+        @for (crop of crops(); track crop.id) {
+          <a [routerLink]="['/crop', crop.slug]" class="px-3.5 py-3 hover:bg-gray-800 hover:text-primary-300 transition-colors flex items-center gap-1.5 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-primary-500"></span>
+            {{ currentLang() === 'ur' ? crop.nameUr : crop.nameEn }}
+          </a>
+        }
+      </div>
+
+      <div class="text-xs text-primary-400 font-bold py-3">
+        {{ currentLang() === 'ur' ? 'پورے پاکستان میں تیز رفتار ترسیل' : 'Fast Delivery Across Pakistan' }}
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Collapsible Menu -->
+  @if (isMenuOpen()) {
+    <div class="md:hidden bg-white border-t border-gray-200 px-4 py-3 space-y-2">
+      <input
+        type="text"
+        [placeholder]="currentLang() === 'ur' ? 'تلاش کریں...' : 'Search products...'"
+        class="w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm mb-2"
+      />
+      <a routerLink="/" class="block px-3 py-2 rounded-lg font-bold text-gray-900 bg-gray-100">
+        {{ currentLang() === 'ur' ? 'ہوم' : 'Home' }}
+      </a>
+      <a routerLink="/shop" class="block px-3 py-2 rounded-lg font-bold text-gray-800 hover:bg-gray-50">
+        {{ currentLang() === 'ur' ? 'تمام مصنوعات' : 'All Products' }}
+      </a>
+      <div class="pt-2 border-t border-gray-100">
+        <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block px-3 mb-1">
+          {{ currentLang() === 'ur' ? 'فصلیں' : 'Crops' }}
+        </span>
+        @for (crop of crops(); track crop.id) {
+          <a [routerLink]="['/crop', crop.slug]" class="block px-3 py-1.5 text-sm text-gray-700 hover:text-primary-700">
+            {{ currentLang() === 'ur' ? crop.nameUr : crop.nameEn }}
+          </a>
+        }
+      </div>
+    </div>
+  }
+</header>
+
+<!-- Main Page Content -->
+<main class="min-h-[75vh]">
+  <router-outlet></router-outlet>
+</main>
+
+<!-- Footer with Company Information -->
+<footer class="bg-gray-950 text-gray-300 pt-12 pb-8 border-t border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+    <div class="space-y-3">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-primary-600 text-white rounded-lg flex items-center justify-center font-bold">GP</div>
+        <span class="text-xl font-bold text-white">GrowPak Store</span>
+      </div>
+      <p class="text-xs text-gray-400 leading-relaxed">
+        {{ currentLang() === 'ur' 
+          ? 'پاکستانی کسانوں کے لیے براہ راست کھاد، بیج اور زرعی ادویات کا واحد ڈیجیٹل حل۔' 
+          : 'Leading digital agri-commerce platform connecting Pakistani farmers with genuine inputs and direct doorstep delivery.' }}
+      </p>
+      <div class="text-xs text-gray-400 space-y-1 pt-2">
+        <p class="font-semibold text-white">GrowTech Solutions (Pvt) Ltd</p>
+        <p>{{ siteSettings().address }}</p>
+        <p>Phone: {{ siteSettings().phone }}</p>
+        <p>Email: {{ siteSettings().email }}</p>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-3">
+        {{ currentLang() === 'ur' ? 'فصل کے مطابق' : 'Shop by Crop' }}
+      </h4>
+      <ul class="space-y-2 text-xs text-gray-400">
+        @for (c of crops(); track c.id) {
+          <li><a [routerLink]="['/crop', c.slug]" class="hover:text-primary-400 transition-colors">{{ currentLang() === 'ur' ? c.nameUr : c.nameEn }}</a></li>
+        }
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-3">
+        {{ currentLang() === 'ur' ? 'اہم معلومات' : 'Information' }}
+      </h4>
+      <ul class="space-y-2 text-xs text-gray-400">
+        <li><a href="#" class="hover:text-primary-400">{{ currentLang() === 'ur' ? 'ہمارے متعلق' : 'About Us' }}</a></li>
+        <li><a href="#" class="hover:text-primary-400">{{ currentLang() === 'ur' ? 'ڈلیوری اور شپنگ کے اصول' : 'Weight-Based Shipping' }}</a></li>
+        <li><a href="#" class="hover:text-primary-400">{{ currentLang() === 'ur' ? 'فیلڈ ایجنٹ پروگرام' : 'Field Agent Program' }}</a></li>
+        <li><a href="#" class="hover:text-primary-400">{{ currentLang() === 'ur' ? 'دکاندار بنیں (وینڈر)' : 'Become a Vendor' }}</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-3">
+        {{ currentLang() === 'ur' ? 'کسٹمر سپورٹ' : 'Customer Support' }}
+      </h4>
+      <div class="bg-gray-900 border border-gray-800 rounded-xl p-4 text-xs space-y-2">
+        <p class="text-gray-400">
+          {{ currentLang() === 'ur' ? 'کسی بھی سوال یا رہنمائی کے لیے ہم سے رابطہ کریں:' : 'Direct assistance for farmers and vendors:' }}
+        </p>
+        <p class="text-primary-400 font-extrabold text-base">{{ siteSettings().phone }}</p>
+        <a [href]="'https://wa.me/' + siteSettings().whatsappNumber" target="_blank" class="inline-block mt-2 px-3 py-1.5 bg-emerald-700 hover:bg-emerald-600 text-white rounded-lg text-xs font-bold transition-colors">
+          WhatsApp Support
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 pt-6 border-t border-gray-900 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-2">
+    <div>&copy; 2026 GrowPak Store. All rights reserved.</div>
+    <div class="flex gap-4">
+      <a href="#" class="hover:text-gray-400">Privacy Policy</a>
+      <a href="#" class="hover:text-gray-400">Terms of Service</a>
+      <a href="#" class="hover:text-gray-400">Shipping Policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Action Button Site-wide -->
+<a
+  [href]="'https://wa.me/' + siteSettings().whatsappNumber"
+  target="_blank"
+  class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20bd5a] text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center transition-transform hover:scale-110 group cursor-pointer"
+  aria-label="Order on WhatsApp">
+  <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.88-9.89 9.88"/>
+  </svg>
+</a>

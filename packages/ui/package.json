@@ -1,0 +1,16 @@
+{
+  "name": "@growpak/ui",
+  "version": "1.0.0",
+  "description": "Shared Angular UI and Design Tokens for GrowPak Store",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@growpak/shared": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}

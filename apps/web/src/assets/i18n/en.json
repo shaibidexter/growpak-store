@@ -1,0 +1,29 @@
+{
+  "site": {
+    "name": "GrowPak Store",
+    "tagline": "Pakistan's Trusted Agri-Commerce Platform",
+    "phone": "+92-326-0409887",
+    "email": "info@growtechsol.com",
+    "address": "Plot 60-D, Street 7, I-10/3, Islamabad, Pakistan"
+  },
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "shopByCrop": "Shop by Crop",
+    "vendors": "Vendors",
+    "cart": "Cart",
+    "account": "Account",
+    "login": "Login",
+    "register": "Register",
+    "orderOnWhatsapp": "Order on WhatsApp",
+    "searchPlaceholder": "Search seeds, fertilizers, pesticides..."
+  },
+  "home": {
+    "heroTitle": "Grow More, Earn More with Genuine Agri Inputs",
+    "heroSubtitle": "Direct delivery to your doorstep across Pakistan at guaranteed wholesale prices.",
+    "exploreCrops": "Select Your Crop",
+    "categories": "Product Categories",
+    "featuredProducts": "Featured Products",
+    "freeShippingNotice": "Zero Shipping on Field Agent Orders & Free Delivery Eligible Products"
+  }
+}

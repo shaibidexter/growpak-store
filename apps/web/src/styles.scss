@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-en: 'Inter', sans-serif;
+  --font-ur: 'Noto Nastaliq Urdu', serif;
+}
+
+[dir="rtl"] {
+  font-family: var(--font-ur);
+  line-height: 1.8;
+}
+
+.urdu-text {
+  font-family: var(--font-ur);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

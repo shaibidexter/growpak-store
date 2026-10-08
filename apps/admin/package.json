@@ -1,0 +1,37 @@
+{
+  "name": "@growpak/admin",
+  "version": "1.0.0",
+  "description": "Angular 21 Admin & Management Portal for GrowPak Store",
+  "private": true,
+  "scripts": {
+    "dev": "ng serve --port 4300",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "dependencies": {
+    "@angular/animations": "~21.2.25",
+    "@angular/cdk": "~21.2.14",
+    "@angular/common": "~21.2.25",
+    "@angular/compiler": "~21.2.25",
+    "@angular/core": "~21.2.25",
+    "@angular/forms": "~21.2.25",
+    "@angular/material": "~21.2.14",
+    "@angular/platform-browser": "~21.2.25",
+    "@angular/platform-browser-dynamic": "~21.2.25",
+    "@angular/router": "~21.2.25",
+    "@growpak/shared": "*",
+    "rxjs": "~7.8.1",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "~21.2.26",
+    "@angular/cli": "~21.2.26",
+    "@angular/compiler-cli": "~21.2.25",
+    "@types/node": "^22.13.9",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.2"
+  }
+}
